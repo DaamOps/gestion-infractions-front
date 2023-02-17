@@ -1,0 +1,35 @@
+.navbar-text {
+  color: #2d4373;
+  cursor: pointer;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #2d4373;
+}
+
+img {
+  width: 70%;
+  margin-top: -2em;
+}
+
+h1 {
+  color: black;
+  font-weight: bolder;
+}
+
+h6 {
+  width: 50%;
+}
+
+li {
+  color: black;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.fa-circle-dot {
+  color: #2d4373;
+}

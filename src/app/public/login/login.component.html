@@ -1,1 +1,72 @@
-<p>login works!</p>
+<div class="container mt-2">
+
+  <!-- Outer Row -->
+  <div class="row justify-content-center">
+
+    <div class="col-xl-10 col-lg-12 col-md-9">
+
+      <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+          <!-- Nested Row within Card Body -->
+          <div class="row">
+            <div class="col-lg-6 d-none d-lg-block bg-gradient-primary">
+              <img class="mt-5" src="../../../assets/images/infractions.png" alt="" srcset="">
+              <h2 class="mt-4">Gestion des infractions </h2>
+              <p class="ml-5"> Contravention, Délit & Crime &lt;/&gt; </p>
+            </div>
+            <div class="col-lg-6">
+              <div class="p-5">
+                <div class="text-center">
+                  <h1 class="h4 text-gray-900 mb-4">ReBienvenu!</h1>
+                </div>
+                <form class="user" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                    <input type="username" formControlName="username" required class="form-control form-control-user"
+                           id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Nom d'utilisateur*">
+                    <div class="error-input" *ngIf="username?.invalid && (username?.dirty || username?.touched)">
+                      <div *ngIf="username?.errors?.['required']">
+                        Le nom d'utilisateur est obligatoire
+                      </div>
+                      <div *ngIf="username?.errors?.['minlength']">
+                        Le nom d'utilisateur doit avoir au moins 3 lettres ou chiffres.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input formControlName="password" required type="password" class="form-control form-control-user"
+                           id="exampleInputPassword" placeholder="Mot de Passe*">
+                    <div class="error-input" *ngIf="username?.invalid && password?.invalid && credentialsError">
+                      Nom d'utilisateur ou mot de passe incorrect.
+                    </div>
+                    <div class="error-input" *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+                      <div *ngIf="password?.errors?.['required']">
+                        Le mot de passe est obligatoire
+                      </div>
+                      <div *ngIf="password?.errors?.['minlength']">
+                        Le mot de passe doit avoir 8 caractères minimum.
+                      </div>
+                    </div>
+                  </div>
+                  <button [disabled]="!loginForm.valid" class="btn btn-login btn-login-bis btn-user btn-block mt-5"
+                          type="submit">
+                    Se connecter
+                  </button>
+                </form>
+                <hr>
+                <span>Pas de compte?
+                  <span routerLink="/register" class="register-text">Inscrivez-vous!</span>
+                </span>
+                <div *ngIf="isUserDeleted">
+                  Login is already taken.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,1 +1,108 @@
-<p>infraction-show works!</p>
+<div class="container">
+  <div class="main-body">
+
+    <!-- Breadcrumb -->
+    <button (click)="goBack()" class="btn btn-light btn-circle">
+      <i class="fab fas fa-arrow-left"></i>
+    </button>
+    <!-- /Breadcrumb -->
+
+    <div class="card shadow mb-4 ml-4">
+      <div class="card-body">
+        <div class="row gutters-sm">
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                  <img src="../../../assets/images/homepage.jpg" alt="infraction profil image" class="rounded-circle image">
+                  <div class="mt-3">
+                    <h4>{{infraction?.firstname | titlecase}} {{infraction?.lastname | titlecase}}</h4>
+                    <p class="mb-1 badge badge-secondary">{{infraction?.profil?.libelle | uppercase}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Fraudeur</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{infraction?.fraudeur.prenom}} {{infraction?.fraudeur.nom}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">CNI du fraudeur</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{infraction?.fraudeur.cni}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Nom</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{infraction?.nom}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Type</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{infraction?.type}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Cause</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{infraction?.cause}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Commentaire</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{infraction?.commentaire}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Amende</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary amende">
+                    {{infraction?.amende}} FCFA
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Etat</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary amende">
+                    <span *ngIf="infraction.paye" class="badge badge-primary paye">Paye</span>
+                    <span *ngIf="!infraction.paye" class="badge badge-info non-paye">Non Paye</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

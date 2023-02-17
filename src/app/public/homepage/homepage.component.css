@@ -1,0 +1,47 @@
+img {
+  float: right;
+  width: 100%;
+}
+
+.navbar-text {
+  color: #2d4373;
+  cursor: pointer;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #2d4373;
+}
+.title-homepage {
+  margin: 5em 0 0 5em;
+  color: black;
+  font-weight: bolder;
+}
+
+.text-homepage {
+  margin: 1em 0 0 12.5em;
+}
+.btn-primary {
+  background-color: #2d4373;
+  margin: 1em 0 0 10em;
+}
+
+.fa-arrow-right {
+  margin-left: 0.4em;
+}
+.type-row {
+  margin: 5em 0 0 11.5em;
+}
+
+.card {
+  width: 80%;
+}
+
+.card a {
+  float: right;
+  cursor: pointer;
+}
+
+.card img {
+  cursor: pointer;
+}

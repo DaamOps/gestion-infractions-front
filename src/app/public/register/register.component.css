@@ -1,0 +1,13 @@
+.custom-container {
+  margin-left: 9em;
+}
+img {
+  margin-left: -7em;
+}
+.card {
+  width: 70em;
+}
+.register-text {
+  color: #33508f;
+  cursor: pointer;
+}

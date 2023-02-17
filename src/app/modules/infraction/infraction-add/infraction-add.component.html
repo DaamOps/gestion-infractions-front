@@ -1,1 +1,155 @@
-<p>infraction-add works!</p>
+<div class="container">
+  <button (click)="goBack()" class="btn btn-light btn-circle">
+    <i class="fab fas fa-arrow-left"></i>
+  </button>
+  <div class="card o-hidden border-0 shadow-lg my-5">
+    <div class="card-body p-0">
+      <!-- Nested Row within Card Body -->
+      <div class="row">
+        <div class="col-lg-5 d-none d-lg-block">
+          <div class="avatar d-flex flex-column align-items-center text-center">
+            <img [src]="imageSrc"
+                 alt="user profil image" class="rounded-circle">
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="p-5">
+            <div class="text-center">
+              <h1 class="h4 text-gray-900 mb-4">Ajouter une infraction</h1>
+            </div>
+            <form id='add-form' class="user" [formGroup]="addForm" (ngSubmit)="onSubmit()">
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <input
+                    type="text"
+                    class="form-control form-control-user"
+                    id="exampleFirstName"
+                    placeholder="Prénom du fraudeur*"
+                    formControlName="prenomFraudeur" required
+                  />
+                  <div class="error-input" *ngIf="prenomFraudeur?.invalid && prenomFraudeur?.touched">
+                    <div *ngIf="prenomFraudeur?.errors?.['required']">
+                      Le prénom est obligatoire
+                    </div>
+                    <div *ngIf="prenomFraudeur?.errors?.['pattern']">
+                      Le prénom ne doit contenir que des lettres.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <input
+                    type="text"
+                    class="form-control form-control-user"
+                    id="exampleLastName"
+                    placeholder="Nom du fraudeur*"
+                    formControlName="nomFraudeur" required
+                  />
+                  <div class="error-input" *ngIf="nomFraudeur?.invalid && nomFraudeur?.touched">
+                    <div *ngIf="nomFraudeur?.errors?.['required']">
+                      Le nom du faudeur est obligatoire
+                    </div>
+                    <div *ngIf="nomFraudeur?.errors?.['pattern']">
+                      Le nom ne doit contenir que des lettres.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-12 mb-3 mb-sm-0">
+                  <input
+                    type="text"
+                    class="form-control form-control-user"
+                    id="exampleCNI"
+                    placeholder="CNI du fraudeur"
+                    formControlName="cniFraudeur" required
+                  />
+                  <div class="error-input" *ngIf="cniFraudeur?.invalid && cniFraudeur?.touched">
+                    <div *ngIf="cniFraudeur?.errors?.['pattern']">
+                      Le CNI est invalide.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <input
+                    type="text"
+                    class="form-control form-control-user"
+                    id="nom"
+                    placeholder="Nom*"
+                    formControlName="nom" required
+                  />
+                  <div class="error-input" *ngIf="nom?.invalid && nom?.touched">
+                    <div *ngIf="nom?.errors?.['required']">
+                      Le nom est obligatoire.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <select required formControlName="type" id="items-select" class="form-select custom-select custom-select-sm form-control form-control-sm">
+                    <option disabled selected value="">Choisir le type d'infraction</option>
+                    <option> Contravention </option>
+                    <option> Délit </option>
+                    <option> Crime </option>
+                  </select>
+                  <div class="error-input" *ngIf="type?.invalid && type?.touched">
+                    <div *ngIf="type?.errors?.['required']">
+                      Le type est obligatoire
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <input
+                    type="text"
+                    class="form-control form-control-user"
+                    id="exampleCause"
+                    placeholder="Cause*"
+                    formControlName="cause" required
+                  />
+                  <div class="error-input" *ngIf="cause?.invalid && cause?.touched">
+                    <div *ngIf="cause?.errors?.['required']">
+                      La cause est obligatoire.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <input
+                    type="number"
+                    class="form-control form-control-user"
+                    id="exampleAmende"
+                    placeholder="Amende*"
+                    formControlName="amende" required
+                  />
+                  <div class="error-input" *ngIf="amende?.invalid && amende?.touched">
+                    <div *ngIf="amende?.errors?.['required']">
+                      L'amende est obligatoire.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-12 mb-3 mb-sm-0">
+                  <textarea
+                    type="text"
+                    class="form-control form-control-user"
+                    id="commentaire"
+                    placeholder="Commentaire"
+                    formControlName="commentaire"
+                  >
+                  </textarea>
+                </div>
+              </div>
+              <hr>
+              <button [disabled]="!addForm.valid" type="submit" class="btn btn-primary btn-user btn-block btn-login-bis">
+                Enregistrer
+              </button>
+              <hr>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

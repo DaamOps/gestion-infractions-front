@@ -1,1 +1,84 @@
-<p>infraction-list works!</p>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <h1 class="h3 mb-4 mt-4 text-gray-800">Liste des infractions</h1>
+
+  <!-- Add button -->
+  <a *ngIf="role !== 'ROLE_USER'" [routerLink]="['/dashboard/parametres/infractions/add']" class="btn btn-add btn-icon-split mb-4">
+    <span class="icon text-white-50">
+      <i class="fas fa-plus"></i>
+    </span>
+    <span class="text">Ajouter</span>
+  </a>
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4 ml-4" style="clear: both;">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Infractions commises</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <div class="row search-row">
+          <div>
+            <div class="filter">
+              <input type="search" name="" id="input-search" class="form-control form-control-sm" placeholder="rechercher par type"
+                     [(ngModel)]="type" (keyup.enter)="filterByType(type)">
+              <label for="input-search">Rechercher: </label>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="col-sm-12">
+            <table class="table table-bordered" id="" width="100%" cellspacing="0">
+              <thead>
+              <tr>
+                <th>Fraudeur</th>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Cause</th>
+                <th>Amende</th>
+                <th>Commentaire</th>
+                <th>Etat</th>
+                <th>Actions</th>
+              </tr>
+              </thead>
+              <tfoot>
+              <tr>
+                <th>Fraudeur</th>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Cause</th>
+                <th>Amende</th>
+                <th>Commentaire</th>
+                <th>Etat</th>
+                <th>Actions</th>
+              </tr>
+              </tfoot>
+              <tbody>
+              <tr *ngFor="let infraction of infractions; index as i">
+                <td>{{infraction.fraudeur.prenom | titlecase}} {{infraction.fraudeur.nom | titlecase}}</td>
+                <td>{{infraction.nom | titlecase}}</td>
+                <td>{{infraction.type | titlecase}}</td>
+                <td>{{infraction.cause | titlecase}}</td>
+                <td>{{infraction.amende}} FCFA</td>
+                <td>{{infraction.commentaire | titlecase}}</td>
+                <td>
+                  <i *ngIf="infraction.paye" class="fa-solid fa-circle-check fa-2x"></i>
+                  <i *ngIf="!infraction.paye" class="fa-solid fa-circle-xmark fa-2x"></i>
+                </td>
+                <td class="actions">
+                  <button [routerLink]="['/parametres/infractions', infraction.id]" type="button" class="btn btn-primary">Détails</button>
+                  <button (click)="onSettlement(infraction.id, i)" *ngIf="!infraction.paye && !regler && (role=='ROLE_SUPERIEUR' || role=='ROLE_ADMINISTRATEUR')" type="button" class="btn btn-info ml-2">Régler</button>
+                  <button (click)="onCancel(infraction.id, i)" *ngIf="!infraction.paye && (role=='ROLE_SUPERIEUR' || role=='ROLE_ADMINISTRATEUR')" type="button" class="btn btn-danger ml-2">Annuler</button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

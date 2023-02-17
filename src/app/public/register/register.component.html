@@ -1,1 +1,174 @@
-<p>register works!</p>
+<div class="custom-container mt-2">
+
+  <!-- Outer Row -->
+  <div class="row justify-content-center">
+
+    <div class="col-xl-10 col-lg-12 col-md-9">
+
+      <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+          <!-- Nested Row within Card Body -->
+          <div class="row">
+            <div class="col-lg-6 d-none d-lg-block bg-gradient-primary">
+              <img class="mt-5" src="../../../assets/images/infractions.png" alt="" srcset="">
+              <h2 class="mt-4">Gestion des infractions </h2>
+              <p class="ml-5"> Contravention, Délit & Crime &lt;/&gt; </p>
+            </div>
+            <div class="col-lg-6">
+              <div class="p-5">
+                <div class="text-center">
+                  <h1 class="h4 text-gray-900 mb-4">Inscription</h1>
+                </div>
+                <form class="user" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <input
+                        type="text"
+                        class="form-control form-control-user"
+                        id="exampleFirstName"
+                        placeholder="Prénom*"
+                        formControlName="prenom" required
+                      />
+                      <div class="error-input" *ngIf="prenom?.invalid && prenom?.touched">
+                        <div *ngIf="prenom?.errors?.['required']">
+                          Le prénom est obligatoire
+                        </div>
+                        <div *ngIf="prenom?.errors?.['pattern']">
+                          Le prénom ne doit contenir que des lettres.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <input
+                        type="text"
+                        class="form-control form-control-user"
+                        id="exampleLastName"
+                        placeholder="Nom*"
+                        formControlName="nom" required
+                      />
+                      <div class="error-input" *ngIf="nom?.invalid && nom?.touched">
+                        <div *ngIf="nom?.errors?.['required']">
+                          Le nom du faudeur est obligatoire
+                        </div>
+                        <div *ngIf="nom?.errors?.['pattern']">
+                          Le nom ne doit contenir que des lettres.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-6">
+                      <input
+                        type="text"
+                        class="form-control form-control-user"
+                        id="cni"
+                        placeholder="CNI*"
+                        formControlName="cni" required
+                      />
+                      <div class="error-input" *ngIf="cni?.invalid && cni?.touched">
+                        <div *ngIf="cni?.errors?.['pattern']">
+                          Le CNI est invalide.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <input
+                        type="text"
+                        class="form-control form-control-user"
+                        id="examplePhoneNumber"
+                        placeholder="Téléphone* Ex: 776054935"
+                        formControlName="telephone" required
+                      />
+                      <div class="error-input" *ngIf="telephone?.invalid && telephone?.touched">
+                        <div *ngIf="telephone?.errors?.['required']">
+                          Le numéro de téléphone est obligatoire
+                        </div>
+                        <div *ngIf="telephone?.errors?.['pattern']">
+                          Le numéro de téléphone est invalide.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="username" formControlName="username" required class="form-control form-control-user"
+                           id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Nom d'utilisateur*">
+                    <div class="error-input" *ngIf="username?.invalid && (username?.dirty || username?.touched)">
+                      <div *ngIf="username?.errors?.['required']">
+                        Le nom d'utilisateur est obligatoire
+                      </div>
+                      <div *ngIf="username?.errors?.['minlength']">
+                        Le nom d'utilisateur doit avoir au moins 3 lettres ou chiffres.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <input formControlName="password" required type="password" class="form-control form-control-user"
+                             id="exampleInputPassword" placeholder="Mot de Passe*">
+                      <div class="error-input" *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+                        <div *ngIf="password?.errors?.['required']">
+                          Le mot de passe est obligatoire
+                        </div>
+                        <div *ngIf="password?.errors?.['minlength']">
+                          Le mot de passe doit avoir 8 caractères minimum.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <input formControlName="confirmPassword" required type="password" class="form-control form-control-user"
+                             id="confirmPassword" placeholder="Confirmer mot de passe*">
+
+                      <div class="error-input" *ngIf="confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)">
+                        <div *ngIf="confirmPassword?.errors?.['required']">
+                          Veuillez renseigner ce champ.
+                        </div>
+                        <div *ngIf="error">
+                          Les mots de passe ne sont pas identiques
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <input type="text" formControlName="adresse" required class="form-control form-control-user"
+                             id="adresse" aria-describedby="adresse" placeholder="Adresse*">
+                      <div class="error-input" *ngIf="adresse?.invalid && (adresse?.dirty || adresse?.touched)">
+                        <div *ngIf="adresse?.errors?.['required']">
+                          L'adresse est obligatoire
+                        </div>
+                        <div *ngIf="adresse?.errors?.['minlength']">
+                          L'adresse doit avoir au moins 3 lettres ou chiffres.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <input type="text" formControlName="matriculeVoiture" required class="form-control form-control-user"
+                             id="matricule" aria-describedby="matricule" placeholder="Matricule de votre voiture*">
+                      <div class="error-input" *ngIf="matriculeVoiture?.invalid && (matriculeVoiture?.dirty || matriculeVoiture?.touched)">
+                        <div *ngIf="matriculeVoiture?.errors?.['required']">
+                          Le matricule est obligatoire
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <button [disabled]="!registerForm.valid" class="btn btn-login btn-login-bis btn-user btn-block mt-5"
+                          type="submit">
+                    S'inscrire
+                  </button>
+                </form>
+                <hr>
+                <span>Vous avez déjà un compte?
+                  <span routerLink="/login" class="register-text">Connectez-vous!</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

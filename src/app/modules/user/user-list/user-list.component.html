@@ -1,1 +1,71 @@
-<p>user-list works!</p>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <h1 class="h3 mb-4 mt-4 text-gray-800">Liste des utilisateurs</h1>
+
+  <!-- Add button -->
+  <a *ngIf="profil !== 'fraudeur'" [routerLink]="['/dashboard/parametres/infractions/add']" class="btn btn-add btn-icon-split mb-4">
+    <span class="icon text-white-50">
+      <i class="fas fa-plus"></i>
+    </span>
+    <span class="text">Ajouter</span>
+  </a>
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4 ml-4" style="clear: both;">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Fraudeurs</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <div class="row search-row">
+          <div>
+            <div class="filter">
+              <input type="search" name="" id="input-search" class="form-control form-control-sm" placeholder="rechercher par cni"
+                     [(ngModel)]="cni" (keyup.enter)="filterByType(cni)">
+              <label for="input-search">Rechercher: </label>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="col-sm-12">
+            <table class="table table-bordered" id="" width="100%" cellspacing="0">
+              <thead>
+              <tr>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>CNI</th>
+                <th>Adresse</th>
+                <th>Téléphone</th>
+                <th>Matricule voiture</th>
+              </tr>
+              </thead>
+              <tfoot>
+              <tr>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>CNI</th>
+                <th>Adresse</th>
+                <th>Téléphone</th>
+                <th>Matricule voiture</th>
+              </tr>
+              </tfoot>
+              <tbody>
+              <tr *ngFor="let user of users; index as i">
+                <td>{{user.prenom | titlecase}}</td>
+                <td>{{user.nom | titlecase}}</td>
+                <td>{{user.cni | titlecase}}</td>
+                <td>{{user.adresse | titlecase}}</td>
+                <td> (+221) {{user.telephone}}</td>
+                <td>{{user.matriculeVoiture | titlecase}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

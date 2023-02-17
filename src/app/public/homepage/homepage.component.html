@@ -1,1 +1,58 @@
-<p>homepage works!</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Infractions Routières</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    <span class="navbar-text">
+      <span routerLink="/login">Se connecter</span> |
+      <span routerLink="/register">S'inscrire</span>
+    </span>
+  </div>
+</nav>
+<div class="row">
+  <div class="col">
+    <h1 class="title-homepage">Découvrez le premier site de gestion des infractions routières pour les particuliers </h1>
+    <h6 class="text-homepage"> Qu'est ce qu'une infraction routière? Une infraction routière est une action allant à l'encontre du code de la route, pouvant être une contravention, un délit ou un crime en fonction de sa gravité.</h6>
+    <button routerLink="/contravention" type="button" class="btn btn-primary btn-lg">Explorez
+      <i class="fa-solid fa-arrow-right-long"></i>
+    </button>
+  </div>
+  <div class="col">
+    <img src="../../../assets/images/homepage.jpg" alt="" srcset="">
+  </div>
+</div>
+<div class="row type-row">
+  <div class="col">
+    <div class="card">
+      <img routerLink="/contravention" class="card-img-top" src="../../../assets/images/contravention.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Les Contraventions</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a routerLink="/contravention" class="btn btn-primary">Voir plus</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img routerLink="/delit" class="card-img-top" src="../../../assets/images/delit.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Les Délits</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a routerLink="/delit" class="btn btn-primary">Voir plus</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img routerLink="/crime" class="card-img-top" src="../../../assets/images/crime.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Les Crimes</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a routerLink="/crime" class="btn btn-primary">Voir plus</a>
+      </div>
+    </div>
+  </div>
+</div>

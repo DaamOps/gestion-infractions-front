@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfractionComponent implements OnInit {
 
-  constructor() { }
+  currentUser: any;
+
+  constructor() {}
 
   ngOnInit(): void {
+    this.getCurrentUser();
+  }
+
+  getCurrentUser() {
+    const user = localStorage.getItem('currentUser')!;
+    this.currentUser = JSON.parse(user);
   }
 
 }
